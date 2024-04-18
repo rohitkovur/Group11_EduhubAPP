@@ -29,7 +29,7 @@ spring.datasource.username=root
 spring.datasource.password=mysql@123
 ```
 
-4. Build and run the Spring Boot application.
+3. Build and run the Spring Boot application.
 
 ### Step 3: Frontend Setup (Angular)
 1. Open the frontend folder in a terminal.
@@ -38,13 +38,13 @@ spring.datasource.password=mysql@123
 npm install -g @angular/cli
 ```
 
-4. Install project dependencies.
+3. Install project dependencies.
 ```
 npm install
 
 ```
 
-6. Start the Angular development server.
+4. Start the Angular development server.
 ```
 ng serve
 ```
@@ -60,4 +60,15 @@ ng serve
 
 ## Architecture
 ![Architecture](https://github.com/rohitkovur/Group11_EduhubApplication/assets/167348702/361c38a4-5ecb-48d4-9103-7678fbf40ee1)
+
+## Important Features
+### Login/ Signup : 
+Eduhub uses google authentication to ensure a secure authentication of users. Users who are new will be automatically added to the application and existing users will be signed in.
+![image](https://github.com/rohitkovur/Group11_EduhubAPP/assets/167348702/6da7d8bc-3d30-43e8-841d-014d1eed913f)
+
+### Secure Payment Gateway:
+Eduhub has an embedded secure payment gateway to offer a secure check out, on completing which they will be enrolled into the course.
+![image](https://github.com/rohitkovur/Group11_EduhubAPP/assets/167348702/ed019e0e-efb3-48c0-8365-4a99d36eda57)
+
+
 
