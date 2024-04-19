@@ -1,0 +1,32 @@
+Create Article
+ - Add subtitle
+ - add imageUrl
+ - remove tags
+ - articleDao.save(article) return newly created article. You dont have to query again for articleId.
+editArticle and getUserArticles lo kuda same apply chey
+
+export interface Article {
+	articleId: string,
+	createdBy: string,
+	title: string,
+	subtitle: string,
+	imageUrl: string,
+	description: string,
+    publishedDate: Date
+}
+-------------------------------------------------------------------
+
+export interface Course {
+	courseId: string,
+	createdBy: string,
+	title: string,
+	subtitle: string,
+	imageUrl: string,
+	description: string,
+    publishedDate: Date,
+    coursePrice: Number,
+
+}
+
+---------------------------
+ - viewCourse - missing isEnrolled, percentCompleted

@@ -1,0 +1,59 @@
+<div class="flex justify-center pt-4" *ngIf="postForm">
+    <div class="bg-gray-100 p-4  shadow-md w-3/4 mb-4">
+        <div class="text-2xl font-bold text-center pb-4">
+            Create Course
+        </div>
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="Enter title">
+                <mat-error *ngIf="postForm.get('title')?.invalid">Title is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Subtitle</mat-label>
+                <input matInput formControlName="subtitle" placeholder="Enter subtitle">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Coourse Price</mat-label>
+                <input matInput type="number" formControlName="coursePrice" placeholder="Enter Course Price $$$ ">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Image URL</mat-label>
+                <input matInput formControlName="imageUrl" placeholder="Enter image URL">
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+            </mat-form-field>
+            <br>
+
+            <button mat-raised-button color="primary" type="submit">
+                <ng-container *ngIf="isEdit">Update</ng-container>
+                <ng-container *ngIf="!isEdit">Create</ng-container>
+            </button>
+        </form>
+
+        <div class="" *ngIf="isEdit">
+            <div class="text-lg font-bold text-center pb-3">
+                Lessons
+            </div>
+            <div *ngFor="let l of lessons; let idx = index" class="bg-gray-200 p-3">
+                <div class="pb-2">
+                    {{idx+1}}. {{l.title}}
+                </div>
+                <div>
+                    <button mat-stroked-button class="mr-2" (click)="goToLesson(l.id)">Open</button>
+                    <button mat-flat-button color="primary" (click)="editLesson(l.id)">Edit </button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center my-4" *ngIf="isEdit">
+            <button mat-flat-button class="mr-4" color="warn" (click)="addLesson()">+ Add Lesson</button>
+            <!-- <button mat-flat-button color="accent">+ Add Quiz </button> -->
+        </div>
+    </div>
+</div>

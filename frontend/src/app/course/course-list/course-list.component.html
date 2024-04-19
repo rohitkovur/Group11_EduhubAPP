@@ -1,0 +1,33 @@
+<!-- <div class="pb-10 flex justify-center">
+    <div class="max-w-screen-lg">
+        <div *ngIf="!mine" class="text-4xl font-bold text-center pb-4">
+            Courses
+        </div>
+        <div *ngIf="mine" class="text-4xl font-bold text-center pb-4">
+            Courses by You
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+            <ng-container *ngFor="let course of courses">
+                <div class="w-72 mb-8 mx-auto">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+                        (click)="!mine && openCourse(course.id)">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-72 h-40">
+                                <img class="object-cover w-full h-full" [src]="course.imageUrl" alt="Image Description">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-lg font-semibold">{{ course.title }}</div>
+                            <div class="text-sm text-gray-600">{{ course.subtitle }}</div>
+                            <div class="text-sm text-gray-800 mt-2">Author: {{ course.createdBy | titlecase }}</div>
+                            <div class="flex mt-3">
+                                <button mat-stroked-button class="mr-2" (click)="openCourse(course.id)">Open</button>
+                                <button mat-flat-button color="primary" (click)="editCourse(course.id)">Edit </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div> -->

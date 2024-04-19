@@ -1,0 +1,25 @@
+<div *ngIf="show" class="pb-10 flex justify-center">
+    <div class="" style="width: 768px;">
+        <div *ngIf="lesson" class="container mx-auto px-4 py-8">
+
+            <a class="text-sm" [routerLink]="'/course/' + course.id">
+                Course: {{course.title}}
+            </a>
+
+            <!-- Article Title -->
+            <h1 class="text-2xl font-bold mb-3">{{lesson.title}}</h1>
+
+            <!-- Subtitle -->
+            <h2 class="text-lg font-semibold text-gray-700 mb-2">{{lesson.subtitle}}</h2>
+
+            <!-- Cover Image -->
+            <div class="mb-8">
+                <img [src]="lesson.imageUrl" alt="Cover Image" class="w-full rounded-lg shadow-md">
+            </div>
+
+            <!-- Content -->
+            <div class="prose" [innerHTML]="lesson.description">
+            </div>
+        </div>
+    </div>
+</div>
