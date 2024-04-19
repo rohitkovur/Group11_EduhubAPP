@@ -1,0 +1,56 @@
+<!-- quiz-form.component.html -->
+<div class="flex flex-col items-center justify-center">
+    <h2 class="text-3xl font-bold my-3">Create Quiz</h2>
+    <h2 class="text-2xl font-bold my-2">Lesson: Flex</h2>
+    <h2 class="text-2xl mb-2">Course: HTML and CSS</h2>
+
+    <form [formGroup]="quizForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/2">
+        <div formArrayName="questions">
+            <div *ngFor="let question of quizForm.get('questions').controls; let i = index" [formGroupName]="i">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="question{{i}}">
+                        Question {{ i + 1 }}
+                    </label>
+                    <textarea id="question{{i}}" formControlName="question" rows="3"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Enter your question"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="correctAnswer{{i}}">
+                        Options
+                    </label>
+                    <input id="option{{1}}" formControlName="option1"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text" placeholder="Option 1">
+                    <input id="option{{2}}" formControlName="option2"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text" placeholder="Option 2">
+                    <input id="option{{3}}" formControlName="option3"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text" placeholder="Option 3">
+                    <input id="option{{4}}" formControlName="option4"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text" placeholder="Option 4">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="correctAnswer{{i}}">
+                        Correct Answer
+                    </label>
+                    <input id="correctAnswer{{i}}" formControlName="correctAnswer"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text" placeholder="Correct Answer">
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="flex items-center justify-start">
+            <button type="button"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                (click)="addQuestion()">Add Question</button>
+        </div>
+        <div class="flex items-center justify-center">
+            <button type="submit"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+        </div>
+    </form>
+</div>

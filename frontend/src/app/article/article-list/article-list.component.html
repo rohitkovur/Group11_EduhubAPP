@@ -1,0 +1,79 @@
+<!-- <div class="pb-10">
+    <div class="text-4xl font-bold text-center pb-4">
+        Articles
+    </div>
+    <div class="flex justify-around">
+        <ng-container *ngFor="let article of articles">
+            <mat-card class="w-72 h-80">
+                <img mat-card-image [src]="article.imageUrl" alt="Image Description">
+                <mat-card-header class="p-2">
+                    <mat-card-title>{{ article.title }}</mat-card-title>
+                    <mat-card-subtitle>{{ article.subtitle }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    {{ article.description }}
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+</div> -->
+
+<!-- <div class="pb-10 flex justify-center">
+    <div class="max-w-screen-lg">
+        <div class="text-4xl font-bold text-center pb-4">
+            Articles
+        </div>
+        <div class="flex flex-wrap ">
+            <ng-container *ngFor="let article of articles">
+                <div class="w-72 mb-8 mx-auto">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-72 h-40">
+                                <img class="object-cover w-full h-full" [src]="article.imageUrl"
+                                    alt="Image Description">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-lg font-semibold">{{ article.title }}</div>
+                            <div class="text-sm text-gray-600">{{ article.subtitle }}</div>
+                            <div class="text-sm text-gray-800 mt-2">{{ article.description }}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="pb-10 flex justify-center">
+    <div class="max-w-screen-lg">
+        <div class="text-4xl font-bold text-center pb-4">
+            Articles
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+            <ng-container *ngFor="let article of articles">
+                <div class="w-72 mb-8 mx-auto">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+                        (click)="!mine && openArticle(article.id)">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-72 h-40">
+                                <img class="object-cover w-full h-full" [src]="article.imageUrl"
+                                    alt="Image Description">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-lg font-semibold">{{ article.title }}</div>
+                            <div class="text-sm text-gray-600">{{ article.subtitle }}</div>
+                            <div class="text-sm text-gray-800 mt-2">Author: {{ article.createdBy | titlecase }}</div>
+                            <div class="flex mt-3">
+                                <button mat-stroked-button class="mr-2" (click)="openArticle(article.id)">Open</button>
+                                <button mat-flat-button color="primary" (click)="editArticle(article.id)">Edit </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="flex justify-center py-5">
+    <div class="w-30vw">
+        <form class="example-form">
+            <mat-form-field [style.width.px]=427>
+                <mat-label>Search Courses and Articles</mat-label>
+                <input matInput placeholder="Ex. Web Development" value="">
+            </mat-form-field>
+        </form>
+    </div>
+</div>
+
+
+<div class="pb-10 flex justify-center">
+    <div class="max-w-screen-lg">
+        <div class="text-4xl font-bold text-center pb-4">
+            Courses
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+            <ng-container *ngFor="let course of courses">
+                <div class="w-72 mb-8 mx-auto">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+                        (click)="openCourse(course.courseId)">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-72 h-40">
+                                <img class="object-cover w-full h-full" [src]="course.imageUrl" alt="Image Description">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-lg font-semibold">{{ truncateTitle(course.title, 23) }}</div>
+                            <div class="text-sm text-gray-600">{{ course.subtitle }}</div>
+                            <div class="text-sm text-gray-800 mt-2">Author: {{ course.userName | titlecase }}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="pb-10 flex justify-center">
+    <div class="max-w-screen-lg">
+        <div class="text-4xl font-bold text-center pb-4">
+            Articles
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+            <ng-container *ngFor="let article of articles">
+                <div class="w-72 mb-8 mx-auto">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+                        (click)="openArticle(article.id)">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <div class="w-72 h-40">
+                                <img class="object-cover w-full h-full" [src]="article.imageUrl"
+                                    alt="Image Description">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-lg font-semibold">{{ article.title }}</div>
+                            <div class="text-sm text-gray-600">{{ article.subtitle }}</div>
+                            <div class="text-sm text-gray-800 mt-2">Author: {{ article.createdBy | titlecase }}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

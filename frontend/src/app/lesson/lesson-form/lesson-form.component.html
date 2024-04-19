@@ -1,0 +1,38 @@
+<div class="flex justify-center pt-4" *ngIf="postForm">
+    <div class="bg-gray-200 p-4  shadow-md w-1/2">
+        <div class="text-2xl font-bold text-center pb-4">
+            Create Lesson
+        </div>
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="Enter title">
+                <mat-error *ngIf="postForm.get('title')?.invalid">Title is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Subtitle</mat-label>
+                <input matInput formControlName="subtitle" placeholder="Enter subtitle">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Image URL</mat-label>
+                <input matInput formControlName="imageUrl" placeholder="Enter image URL">
+            </mat-form-field>
+
+            <div style="min-height: 30vh;">
+                <mat-label>Content</mat-label>
+                <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+                <ngx-editor style="height: 100%;" [editor]="editor" [disabled]="false" formControlName="content"
+                    [placeholder]="'Type here...'"></ngx-editor>
+            </div>
+
+            <button mat-raised-button color="primary" type="submit">
+                <ng-container *ngIf="isEdit">Update</ng-container>
+                <ng-container *ngIf="!isEdit">Create</ng-container>
+            </button>
+
+        </form>
+
+    </div>
+</div>
